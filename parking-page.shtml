@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Kayode Ezike Homepage</title>
+      <link rel="stylesheet" href="./nc_assets/css/style.css">
+    </head>
+
+    <body>
+        <div class="headline">
+            <center>
+                <h1 style="color:#800000">Kayode Ezike</h1>
+                <img style="display: block" src="./img/headshot.png" alt="Kayode Ezike Headshot" width=525 height=300>
+                <div>
+                    <div class="social-icon"><a href="https://twitter.com/kyezike" target="_blank"><img src="./img/twitter.png" alt="T"></a></div>
+                    <div class="social-icon"><a href="https://www.linkedin.com/in/kayodeezike" target="_blank"><img src="./img/linkedin.png" alt="L"></a></div>
+                    <div class="social-icon"><a href="https://github.com/kezike" target="_blank"><img src="./img/github.png" alt="G"></a></div>
+                    <div class="social-icon"><a href="https://medium.com/@kezike" target="_blank"><b><font color="#000000" face="Times" size=4>M</font></b></a></div>
+                </div>
+            </center>
+        </div>
+        <div class="tab">
+            <button class="tablinks" id="about">ABOUT</button>
+            <button class="tablinks" id="writing">WRITING</button>
+            <button class="tablinks" id="press">PRESS</button>
+            <button class="tablinks" id="contact">CONTACT</button>
+            <button class="tablinks" id="projects">PROJECTS</button>
+            <button class="tablinks" id="resume">RESUME</button>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./app/dist/app.bundle.js" charset="utf-8"></script>
+</html>

@@ -1,0 +1,133 @@
+@font-face {
+	font-family: 'Museo Sans';
+	src: url('../fonts/museo-sans-300-webfont.eot');
+	src: url('../fonts/museo-sans-300-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/museo-sans-300-webfont.woff') format('woff'), url('../fonts/museo-sans-300-webfont.ttf') format('truetype'), url('../fonts/museo-sans-300-webfont.svg#museo-sans-300-webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Museo Sans';
+	src: url('../fonts/museo-sans-300-italic-webfont.eot');
+	src: url('../fonts/museo-sans-300-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/museo-sans-300-italic-webfont.woff') format('woff'), url('../fonts/museo-sans-300-italic-webfont.ttf') format('truetype'), url('../fonts/museo-sans-300-italic-webfont.svg#museo-sans-300-italic-webfont') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Museo Sans';
+	src: url('../fonts/museo-sans-700-webfont.eot');
+	src: url('../fonts/museo-sans-700-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/museo-sans-700-webfont.woff') format('woff'), url('../fonts/museo-sans-700-webfont.ttf') format('truetype'), url('../fonts/museo-sans-700-webfont.svg#museo-sans-700-webfont') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Museo Sans';
+	src: url('../fonts/museo-sans-700-italic-webfont.eot');
+	src: url('../fonts/museo-sans-700-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/museo-sans-700-italic-webfont.woff') format('woff'), url('../fonts/museo-sans-700-italic-webfont.ttf') format('truetype'), url('../fonts/museo-sans-700-italic-webfont.svg#museo-sans-700-italic-webfont') format('svg');
+	font-weight: bold;
+	font-style: italic;
+}
+/**
+ * ------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------ *
+**/
+.social-icon {
+    display: inline-block;
+    margin-right: 1em
+}
+ * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    min-width: 300px;
+    height: 100%;
+    margin: 0 auto;
+    font-family: 'Museo Sans', Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    line-height: 1.25;
+    color: #800000;
+    overflow-x: hidden
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: orange
+}
+img:hover {
+    border: 0;
+    color: orange
+}
+/**
+ * ------------------------------------------------------ *
+ * Styles
+ * ------------------------------------------------------ *
+**/
+.headline {
+    margin: 0 auto 3em
+}
+h1 {
+    font-size: 2em;
+    line-height: 1.125;
+    margin: 1.25em 0 0;
+    color: #800000
+}
+h2, h3, .h2 {
+    font-size: 1.5em;
+    margin: 1.25em 0 0;
+    font-weight: normal;
+}
+h4, .h4 {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 2em 0 0.5em;
+}
+p {
+    margin-top: 0;
+    line-height: 1.5;
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+/**
+ * ------------------------------------------------------ *
+ * Content
+ * ------------------------------------------------------ *
+**/
+.headline {
+    text-align: center;
+}
+.headline h2 {
+    margin: 0.25em 0 0;
+    font-size: 1.25em;
+    line-height: 1.25;
+}
