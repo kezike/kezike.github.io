@@ -2,7 +2,7 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <title>Kayode Ezike Homepage</title>
+      <title>Kayode Ezike</title>
       <link rel="stylesheet" href="./nc_assets/css/style.css">
     </head>
 
@@ -20,15 +20,59 @@
             </center>
         </div>
         <div class="tab">
-            <button class="tablinks" id="about">ABOUT</button>
-            <button class="tablinks" id="writing">WRITING</button>
-            <button class="tablinks" id="press">PRESS</button>
-            <button class="tablinks" id="contact">CONTACT</button>
-            <button class="tablinks" id="projects">PROJECTS</button>
-            <button class="tablinks" id="resume">RESUME</button>
+            <button class="tablinks" id="about-tab">ABOUT</button>
+            <button class="tablinks" id="writing-tab">WRITING</button>
+            <button class="tablinks" id="projects-tab">PROJECTS</button>
+            <button class="tablinks" id="resume-tab">RESUME</button>
+            <button class="tablinks" id="press-tab">PRESS</button>
+            <button class="tablinks" id="contact-tab">CONTACT</button>
+        </div>
+        <div id=about-content hidden>
+        </div>
+        <div id=writing-content hidden>
+        </div>
+        <div id=projects-content hidden>
+        </div>
+        <div id=resume-content hidden>
+            <center>
+                <object width="800" height="1000" data="./resume.pdf"></object>
+            </center>
+        </div>
+        <div id=press-content hidden>
+        </div>
+        <div id=contact-content hidden>
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="./app/dist/app.bundle.js" charset="utf-8"></script>
+    <script>
+        let aboutTab = "#about-tab";
+        let writingTab = "#writing-tab";
+        let projectsTab = "#projects-tab";
+        let resumeTab = "#resume-tab";
+        let pressTab = "#press-tab";
+        let contactTab = "#contact-tab";
+        let activeTab = "#about-tab";
+        let activeContent = "#about-content";
+        const tabToContent = {
+            "#about-tab": "#about-content",
+            "#writing-tab": "#writing-content",
+            "#projects-tab": "#projects-content",
+            "#resume-tab": "#resume-content",
+            "#press-tab": "#press-content",
+            "#contact-tab": "#contact-content"
+        };
+        function loadContent(newTab) {
+            if (newTab != activeTab) {
+              $(activeContent).attr("hidden");
+              activeTab = newTab;
+              activeContent = tabToContent[activeTab];
+              $(activeContent).removeAttr("hidden");
+            }
+        }
+        function loadResume() {
+            loadContent(resumeTab);
+        }
+        $(document).on('click', resumeTab, loadResume);
+    </script>
 </html>
