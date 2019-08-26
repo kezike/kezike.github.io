@@ -72,7 +72,7 @@
         let activeTab = "#about-tab";
         let activeContent = "#about-content";
         $(activeTab).addClass("active");
-        $(activeContent).removeAttr("hidden");
+        $(activeContent).show();
         const tabToContent = {
             "#about-tab": "#about-content",
             "#writing-tab": "#writing-content",
@@ -88,7 +88,7 @@
               activeTab = newTab;
               activeContent = tabToContent[activeTab];
               $(activeTab).addClass("active");
-              $(activeContent).removeAttr("hidden");
+              $(activeContent).show();
             }
         }
         function loadAbout() {
