@@ -30,10 +30,19 @@
             </center>
         </div>
         <div id=about-content hidden>
+            <p>
+                TODO: ABOUT TAB
+            </p>
         </div>
         <div id=writing-content hidden>
+            <p>
+                TODO: WRITING TAB
+            </p>
         </div>
         <div id=projects-content hidden>
+            <p>
+                TODO: PROJECTS TAB
+            </p>
         </div>
         <div id=resume-content hidden>
             <center>
@@ -41,8 +50,14 @@
             </center>
         </div>
         <div id=press-content hidden>
+            <p>
+                TODO: PRESS TAB
+            </p>
         </div>
         <div id=contact-content hidden>
+            <p>
+                TODO: CONTACT TAB
+            </p>
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -56,6 +71,8 @@
         let contactTab = "#contact-tab";
         let activeTab = "#about-tab";
         let activeContent = "#about-content";
+        $(activeTab).addClass("active");
+        $(activeContent).removeAttr("hidden");
         const tabToContent = {
             "#about-tab": "#about-content",
             "#writing-tab": "#writing-content",
@@ -67,7 +84,7 @@
         function loadContent(newTab) {
             if (newTab != activeTab) {
               $(activeTab).removeClass("active");
-              $(activeContent).attr("hidden");
+              $(activeContent).hide();
               activeTab = newTab;
               activeContent = tabToContent[activeTab];
               $(activeTab).addClass("active");
