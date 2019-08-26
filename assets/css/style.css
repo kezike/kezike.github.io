@@ -96,7 +96,9 @@ p {
 }
 /* Style the buttons that are used to open the tab content */
 .tab button {
+    color: #800000;
     background-color: inherit;
+    font-weight: bold;
     border: none;
     outline: none;
     cursor: pointer;

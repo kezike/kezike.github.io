@@ -3,29 +3,31 @@
     <head>
       <meta charset="utf-8">
       <title>Kayode Ezike</title>
-      <link rel="stylesheet" href="./nc_assets/css/style.css">
+      <link rel="stylesheet" href="./assets/css/style.css">
     </head>
 
     <body>
         <div class="headline">
             <center>
                 <h1 style="color:#800000">Kayode Ezike</h1>
-                <img style="display: block" src="./img/headshot.png" alt="Kayode Ezike Headshot" width=525 height=300>
+                <img style="display: block" src="./assets/img/headshot.png" alt="Kayode Ezike Headshot" width=525 height=300>
                 <div>
-                    <div class="social-icon"><a href="https://twitter.com/kyezike" target="_blank"><img src="./img/twitter.png" alt="T"></a></div>
-                    <div class="social-icon"><a href="https://www.linkedin.com/in/kayodeezike" target="_blank"><img src="./img/linkedin.png" alt="L"></a></div>
-                    <div class="social-icon"><a href="https://github.com/kezike" target="_blank"><img src="./img/github.png" alt="G"></a></div>
+                    <div class="social-icon"><a href="https://twitter.com/kyezike" target="_blank"><img src="./assets/img/twitter.png" alt="T"></a></div>
+                    <div class="social-icon"><a href="https://www.linkedin.com/in/kayodeezike" target="_blank"><img src="./assets/img/linkedin.png" alt="L"></a></div>
+                    <div class="social-icon"><a href="https://github.com/kezike" target="_blank"><img src="./assets/img/github.png" alt="G"></a></div>
                     <div class="social-icon"><a href="https://medium.com/@kezike" target="_blank"><b><font color="#000000" face="Times" size=4>M</font></b></a></div>
                 </div>
             </center>
         </div>
-        <div class="tab">
-            <button class="tablinks" id="about-tab">ABOUT</button>
-            <button class="tablinks" id="writing-tab">WRITING</button>
-            <button class="tablinks" id="projects-tab">PROJECTS</button>
-            <button class="tablinks" id="resume-tab">RESUME</button>
-            <button class="tablinks" id="press-tab">PRESS</button>
-            <button class="tablinks" id="contact-tab">CONTACT</button>
+        <div class="tab">            
+            <center>
+                <button class="tablinks" id="about-tab">ABOUT</button>
+                <button class="tablinks" id="writing-tab">WRITING</button>
+                <button class="tablinks" id="projects-tab">PROJECTS</button>
+                <button class="tablinks" id="resume-tab">RESUME</button>
+                <button class="tablinks" id="press-tab">PRESS</button>
+                <button class="tablinks" id="contact-tab">CONTACT</button>
+            </center>
         </div>
         <div id=about-content hidden>
         </div>
@@ -64,15 +66,37 @@
         };
         function loadContent(newTab) {
             if (newTab != activeTab) {
+              $(activeTab).removeClass("active");
               $(activeContent).attr("hidden");
               activeTab = newTab;
               activeContent = tabToContent[activeTab];
+              $(activeTab).addClass("active");
               $(activeContent).removeAttr("hidden");
             }
+        }
+        function loadAbout() {
+            loadContent(aboutTab);
+        }
+        function loadWriting() {
+            loadContent(writingTab);
+        }
+        function loadProjects() {
+            loadContent(projectsTab);
         }
         function loadResume() {
             loadContent(resumeTab);
         }
+        function loadPress() {
+            loadContent(pressTab);
+        }
+        function loadContact() {
+            loadContent(contactTab);
+        }
+        $(document).on('click', aboutTab, loadAbout);
+        $(document).on('click', writingTab, loadWriting);
+        $(document).on('click', projectsTab, loadProjects);
         $(document).on('click', resumeTab, loadResume);
+        $(document).on('click', pressTab, loadPress);
+        $(document).on('click', contactTab, loadContact);
     </script>
 </html>
