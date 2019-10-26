@@ -33,7 +33,8 @@
 **/
 .social-icon {
     display: inline-block;
-    margin-right: 1em
+    margin-right: 1em;
+    vertical-align: middle
 }
  * {
     -moz-box-sizing: border-box;
