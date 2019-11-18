@@ -122,6 +122,19 @@ p {
     border: 1px solid #ccc;
     border-top: none;
 }
+.project-list-item button {
+		color: #800000;
+		background-color: #f1f1f1;
+		font-weight: bold;
+		border: 1px solid #ccc;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+}
+.project-list-item button:hover {
+    background-color: #ddd;
+}
 /**
  * ------------------------------------------------------ *
  * Content

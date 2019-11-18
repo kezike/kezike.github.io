@@ -137,20 +137,11 @@
             loadContent(writingTab);
         }
         async function loadProjects() {
-            const projectTemplatePromise = await fetch('https://kezike.github.io/templates/project.html');
-            const projectTemplate = await projectTemplatePromise.text();
-            const projectDataPromise = await fetch('https://kezike.github.io/data/projects.json');
-            const projectData = await projectDataPromise.json();
-            let projectListHtml = "";
-            projectData.map((project, index) => {
-              console.log(`project: ${project}`)
-              projectListHtml += projectTemplate.replace(/{{title}}/g, project.title)
-                        .replace(/{{image}}/g, project.image)
-                        .replace(/{{index}}/g, project.index)
-                        .replace(/{{description}}/g, project.description)
-                        .replace(/{{url}}/g, project.url);
-            });
-            $("#project-list").html(projectListHtml);
+            const projectTemplateUrl = "https://raw.githubusercontent.com/kezike/kezike.github.io/master/templates/project.html";
+            const projectTemplate = await $.get(projectTemplateUrl);
+            const projectDataUrl = "https://raw.githubusercontent.com/kezike/kezike.github.io/master/data/projects.json";
+            const projectData = JSON.parse(await $.get(projectDataUrl));
+            $("#project-list").html(createProjectListHtml(projectTemplate, projectData));
             loadContent(projectsTab);
         }
         function loadResume() {
@@ -162,22 +153,19 @@
         function loadContact() {
             loadContent(contactTab);
         }
-        $(projectsContent).show(async function() {
 
-
-            const projectTemplate = Template(require('templates/project.html'));
-            // projectData.map((project, index) => {
-            //     let projectPayload = {
-            //       'index': index,
-            //       'title': project.title,
-            //       'image': project.image,
-            //       'description': project.description,
-            //       'url': project.url
-            //     };
-            //     let projectRendered = mustache.render(projectTemplate, projectPayload);
-            //     $(projectsContent).append(projectRendered);
-            // });
-        });
+        // Generate and return project list HTML.
+        function createProjectListHtml(template, data) {
+            let listHtml = "";
+            data.map((project, index) => {
+                listHtml += template.replace(/{{title}}/g, project.title)
+                                    .replace(/{{image}}/g, project.image)
+                                    .replace(/{{index}}/g, project.index)
+                                    .replace(/{{description}}/g, project.description)
+                                    .replace(/{{url}}/g, project.url);
+            });
+            return listHtml;
+        }
         $(document).on('click', aboutTab, loadAbout);
         $(document).on('click', writingTab, loadWriting);
         $(document).on('click', projectsTab, loadProjects);
