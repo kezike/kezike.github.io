@@ -10,7 +10,7 @@
         <div class="headline">
             <center>
                 <h1 style="color:#800000">Kayode Ezike</h1>
-                <img style="display: block" src="./assets/img/headshot.png" alt="Kayode Ezike Headshot" width=300 height=300>
+                <img style="display: block" src="./assets/img/headshot.png" alt="Kayode Ezike Headshot" width=250 height=250>
                 <div>
                     <div class="social-icon"><a href="https://twitter.com/kyezike" target="_blank"><img src="./assets/img/twitter.png" alt="T"></a></div>
                     <div class="social-icon"><a href="https://www.linkedin.com/in/kayodeezike" target="_blank"><img src="./assets/img/linkedin.png" alt="L"></a></div>
@@ -20,7 +20,7 @@
                 </div>
             </center>
         </div>
-        <div class="tab">            
+        <div class="tab">
             <center>
                 <button class="tablinks" id="about-tab">ABOUT</button>
                 <button class="tablinks" id="writing-tab">WRITING</button>
@@ -36,7 +36,7 @@
                 <p>
                     My name is Kayode Ezike, but you can call me Ayo. I was born to two Nigerian Igbo immigrants in the Bronx, NY, where I spent the better part of a decade before moving to New Rochelle, NY in the early 2000s. When I am not designing and implementing complex technical systems, I am likely reading, writing, singing, lifting, or playing basketball. My name means "He Who Brings Joy" and I have done my best to live up to this name everyday by surrounding myself with positivity and sharing it with anyone who will receive it. Among my passions are the protection of identity (digital and organic), empowerment of marginalized groups, and systemic resolution of cultural misunderstanding.
                 </p>
-                <p>    
+                <p>
                     Growing up, I always admired how my parents were never bashful about the importance of maintaining their identity in an environment that has not always accepted it. This attitude has been perhaps the most valuable asset I have inherited from my parents over the years. From a young age, my three siblings and I have been exposed to Igbo culture in the form of language, cuisine, music, and values. Over the years, I have been fortunate to participate in a strong network of Nigerian communities in the diaspora. These have come primarily in the form of family, friends, and faith-based groups. The unconditional love and support that I have received from my communities have been invaluable for my growth and I have never taken it for granted. For this reason, I have a special pride for my heritage and allegiance to my people. Igbo Kwenu!
                 </p>
             </div>
@@ -58,8 +58,8 @@
             <div>
                 <h3><strong>Professional</strong></h3>
                 <p>
-                    Like I said earlier, I have spent the majority of my life in school thus far. Nevertheless, I have had an interesting brush with the corporate world in various ways. Throughout the course of my time at MIT, I utilized the summers to explore technical roles at companies spanning a wide variety of industries. My first internship was in social media as an iOS development role at Facebook as part of a student-focused program called Facebook University (FBU). The second summer introduced me into finance as a technology analyst. In my third inernship, I would be introduced to the micropocessor industry at the namesake of Silicon Valley, Intel. That summer was special beyond the realm of the internship because it introduced me to the CODE2040 community through their heralded Fellows Program. CODE2040 continues to occupy a fond place in my heart and a separate post may be in order to due it justice.
-                
+                    Like I said earlier, I have spent the majority of my life in school thus far. Nevertheless, I have had an interesting brush with the corporate world in various ways. Throughout the course of my time at MIT, I utilized the summers to explore technical roles at companies spanning a wide variety of industries. My first internship was in social media as an iOS development role at Facebook as part of a student-focused program called Facebook University (FBU). The second summer introduced me into finance as a technology analyst. In my third inernship, I would be introduced to the micropocessor industry at the namesake of Silicon Valley, Intel. That summer was special beyond the realm of the internship because it introduced me to the Code2040 community through their heralded Fellows Program. Code2040 continues to occupy a fond place in my heart and a separate post may be in order to due it justice.
+
                 </p>
                 <p>
                     By the time, I had gotten to my senior year, I was itching to experience the startup ecosystem and the world of social impact. In the summer after undergrad, I helped my close friend Ryan to develop his decentralized cloud computing startup called Conduit. That summer, I had also caught wind of Sela, an impact measurement platform for sustainable development projects in the emerging world.
@@ -72,9 +72,8 @@
             </p>
         </div>
         <div id=projects-content hidden>
-            <p>
-                TODO: PROJECTS TAB
-            </p>
+            <ul id="project-list" style="list-style-type:none">
+            </ul>
         </div>
         <div id=resume-content hidden>
             <center>
@@ -95,16 +94,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script>
-        let aboutTab = "#about-tab";
-        let writingTab = "#writing-tab";
-        let projectsTab = "#projects-tab";
-        let resumeTab = "#resume-tab";
-        let pressTab = "#press-tab";
-        let contactTab = "#contact-tab";
-        let activeTab = "#about-tab";
-        let activeContent = "#about-content";
-        $(activeTab).addClass("active");
-        $(activeContent).show();
         const tabToContent = {
             "#about-tab": "#about-content",
             "#writing-tab": "#writing-content",
@@ -113,6 +102,24 @@
             "#press-tab": "#press-content",
             "#contact-tab": "#contact-content"
         };
+
+        let aboutTab = "#about-tab";
+        let writingTab = "#writing-tab";
+        let projectsTab = "#projects-tab";
+        let resumeTab = "#resume-tab";
+        let pressTab = "#press-tab";
+        let contactTab = "#contact-tab";
+        let activeTab = "#about-tab";
+        let activeContent = "#about-content";
+        let aboutContent = tabToContent[aboutTab];
+        let writingContent = tabToContent[writingTab];
+        let projectsContent = tabToContent[projectsTab];
+        let resumeContent = tabToContent[resumeTab];
+        let pressContent = tabToContent[pressTab];
+        let contactContent = tabToContent[contactTab];
+        $(activeTab).addClass("active");
+        $(activeContent).show();
+
         function loadContent(newTab) {
             if (newTab != activeTab) {
               $(activeTab).removeClass("active");
@@ -129,7 +136,21 @@
         function loadWriting() {
             loadContent(writingTab);
         }
-        function loadProjects() {
+        async function loadProjects() {
+            const projectTemplatePromise = await fetch('https://kezike.github.io/templates/project.html');
+            const projectTemplate = await projectTemplatePromise.text();
+            const projectDataPromise = await fetch('https://kezike.github.io/data/projects.json');
+            const projectData = await projectDataPromise.json();
+            let projectListHtml = "";
+            projectData.map((project, index) => {
+              console.log(`project: ${project}`)
+              projectListHtml += projectTemplate.replace(/{{title}}/g, project.title)
+                        .replace(/{{image}}/g, project.image)
+                        .replace(/{{index}}/g, project.index)
+                        .replace(/{{description}}/g, project.description)
+                        .replace(/{{url}}/g, project.url);
+            });
+            $("#project-list").html(projectListHtml);
             loadContent(projectsTab);
         }
         function loadResume() {
@@ -141,6 +162,22 @@
         function loadContact() {
             loadContent(contactTab);
         }
+        $(projectsContent).show(async function() {
+
+
+            const projectTemplate = Template(require('templates/project.html'));
+            // projectData.map((project, index) => {
+            //     let projectPayload = {
+            //       'index': index,
+            //       'title': project.title,
+            //       'image': project.image,
+            //       'description': project.description,
+            //       'url': project.url
+            //     };
+            //     let projectRendered = mustache.render(projectTemplate, projectPayload);
+            //     $(projectsContent).append(projectRendered);
+            // });
+        });
         $(document).on('click', aboutTab, loadAbout);
         $(document).on('click', writingTab, loadWriting);
         $(document).on('click', projectsTab, loadProjects);
