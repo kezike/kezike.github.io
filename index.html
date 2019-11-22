@@ -99,9 +99,8 @@
             </center>
         </div>
         <div id=press-content class=tab-content>
-            <p>
-                TODO: PRESS TAB
-            </p>
+            <ul id="press-list" style="list-style-type:none">
+            </ul>
         </div>
         <div id=contact-content class=tab-content>
             <p>
@@ -139,49 +138,53 @@
         let contactContent = tabToContent[contactTab];
         $(activeTab).addClass("active");
         $(activeContent).show();
-        console.log(activeTab);
 
         function loadContent(newTab) {
             if (newTab != activeTab) {
               $(activeTab).removeClass("active");
               $(activeContent).hide();
-              // $(activeContent).removeClass("visible");
-              // $(activeContent).addClass("invisible");
               activeTab = newTab;
               activeContent = tabToContent[activeTab];
               $(activeTab).addClass("active");
               $(activeContent).show();
-              // $(activeContent).removeClass("invisible");
-              // $(activeContent).addClass("visible");
             }
-            console.log(activeTab);
         }
+
         function loadAbout() {
             loadContent(aboutTab);
         }
+
         function loadWriting() {
             loadContent(writingTab);
         }
+
         async function loadProjects() {
             loadContent(projectsTab);
             const projectTemplateUrl = "https://raw.githubusercontent.com/kezike/kezike.github.io/master/templates/project.html";
             const projectTemplate = await $.get(projectTemplateUrl);
             const projectDataUrl = "https://raw.githubusercontent.com/kezike/kezike.github.io/master/data/projects.json";
             const projectData = JSON.parse(await $.get(projectDataUrl));
-            console.log(projectData);
             $("#project-list").html(createProjectListHtml(projectTemplate, projectData));
         }
+
         function loadResume() {
             loadContent(resumeTab);
         }
-        function loadPress() {
+
+        async function loadPress() {
             loadContent(pressTab);
+            const pressTemplateUrl = "https://raw.githubusercontent.com/kezike/kezike.github.io/master/templates/press.html";
+            const pressTemplate = await $.get(pressTemplateUrl);
+            const pressDataUrl = "https://raw.githubusercontent.com/kezike/kezike.github.io/master/data/press.json";
+            const pressData = JSON.parse(await $.get(pressDataUrl));
+            $("#press-list").html(createPressListHtml(pressTemplate, pressData));
         }
+
         function loadContact() {
             loadContent(contactTab);
         }
 
-        // Generate and return project list HTML.
+        // Generate and return project list HTML
         function createProjectListHtml(template, data) {
             let listHtml = "";
             data.map((project, index) => {
@@ -193,6 +196,20 @@
             });
             return listHtml;
         }
+
+        // Generate and return press list HTML
+        function createPressListHtml(template, data) {
+            let listHtml = "";
+            data.map((project, index) => {
+                listHtml += template.replace(/{{title}}/g, press.title)
+                                    .replace(/{{image}}/g, press.image)
+                                    .replace(/{{index}}/g, press.index)
+                                    .replace(/{{description}}/g, press.description)
+                                    .replace(/{{url}}/g, press.url);
+            });
+            return listHtml;
+        }
+
         $(document).on('click', aboutTab, loadAbout);
         $(document).on('click', writingTab, loadWriting);
         $(document).on('click', projectsTab, loadProjects);
