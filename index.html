@@ -200,7 +200,7 @@
         // Generate and return press list HTML
         function createPressListHtml(template, data) {
             let listHtml = "";
-            data.map((project, index) => {
+            data.map((press, index) => {
                 listHtml += template.replace(/{{title}}/g, press.title)
                                     .replace(/{{image}}/g, press.image)
                                     .replace(/{{index}}/g, press.index)
