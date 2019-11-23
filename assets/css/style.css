@@ -121,7 +121,20 @@ p {
     padding: 6px 12px;
     border-top: none
 }
-.project-list-item button {
+button {
+		color: #800000;
+		background-color: #f1f1f1;
+		font-weight: bold;
+		border: 1px solid #ccc;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s
+}
+button:hover {
+    background-color: #ddd
+}
+/* .project-list-item button {
 		color: #800000;
 		background-color: #f1f1f1;
 		font-weight: bold;
@@ -146,7 +159,7 @@ p {
 }
 .press-list-item button:hover {
     background-color: #ddd
-}
+} */
 .carousel-control-prev-icon {
 		height: 150px;
 		width: 25px;
