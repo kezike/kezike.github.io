@@ -121,45 +121,28 @@ p {
     padding: 6px 12px;
     border-top: none
 }
-button {
+button, input[type=submit] {
 		color: #800000;
 		background-color: #f1f1f1;
 		font-weight: bold;
 		border: 1px solid #ccc;
+		border-radius: 4px;
 		outline: none;
 		cursor: pointer;
 		padding: 14px 16px;
 		transition: 0.3s
 }
-button:hover {
+button:hover, input[type=submit]:hover {
     background-color: #ddd
 }
-/* .project-list-item button {
-		color: #800000;
-		background-color: #f1f1f1;
-		font-weight: bold;
-		border: 1px solid #ccc;
-		outline: none;
-		cursor: pointer;
-		padding: 14px 16px;
-		transition: 0.3s
+textarea, input[type=text], input[type=email] {
+  padding: 3px 3px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none
 }
-.project-list-item button:hover {
-    background-color: #ddd
-}
-.press-list-item button {
-		color: #800000;
-		background-color: #f1f1f1;
-		font-weight: bold;
-		border: 1px solid #ccc;
-		outline: none;
-		cursor: pointer;
-		padding: 14px 16px;
-		transition: 0.3s
-}
-.press-list-item button:hover {
-    background-color: #ddd
-} */
 .carousel-control-prev-icon {
 		height: 150px;
 		width: 25px;
