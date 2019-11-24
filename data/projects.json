@@ -2,7 +2,7 @@
   {
     "title": "SolidVC: A Decentralized Framework for Verifiable Credentials on the Web",
     "image": "./assets/img/svc_app_issue.png",
-    "description": "<a href='https://www.w3.org/TR/verifiable-claims-data-model' target='_blank'>Verifiable Credentials</a> framework developed within the context of <a href='https://solid.inrupt.com' target='_blank'>Solid</a>, a decentralized Web technology that is revolutionizing the way that applications interact with personal data by providing users greater control over data storage and access and exposing a consistent view of data to applications, rendering the application experience more seamless, interoperable, and robust",
+    "description": "<a href='https://www.w3.org/TR/verifiable-claims-data-model' target='_blank'>Verifiable Credentials</a> framework developed for <a href='https://solid.inrupt.com' target='_blank'>Solid</a>, a decentralized Web technology that is revolutionizing the way that applications interact with personal data by providing users greater control over data storage and access and exposing a consistent view of data to applications, rendering the application experience more seamless, interoperable, and robust",
     "url": "https://github.com/kezike/solid-vc"
   }
 ]

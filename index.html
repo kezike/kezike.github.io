@@ -30,7 +30,7 @@
                 <button class="tablinks" id="contact-tab">CONTACT</button>
             </center>
         </div>
-        <div id=about-content class="tab-content carousel slide" data-ride="carousel">
+        <div id="about-content" class="tab-content carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#about-content" data-slide-to="0" class="active" style="background-color:#ccc"></li>
                 <li data-target="#about-content" data-slide-to="1" style="background-color:#ccc"></li>
@@ -38,7 +38,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <h3><strong>Personal</strong></h3>
+                    <h3><b>Personal</b></h3>
                     <p>
                         My name is Kayode Ezike, but you can call me Ayo. I was born to two Nigerian Igbo immigrants in the Bronx, NY, where I spent the better part of a decade before moving to New Rochelle, NY in the early 2000s. When I am not designing and implementing complex technical systems, I am likely reading, writing, singing, lifting, or playing basketball. My name means "He Who Brings Joy" and I have done my best to live up to this name everyday by surrounding myself with positivity and sharing it with anyone who will receive it. Among my passions are the protection of identity (digital and organic), empowerment of marginalized groups, and systemic resolution of cultural misunderstanding.
                     </p>
@@ -47,7 +47,7 @@
                     </p>
                 </div>
                 <div class="carousel-item">
-                    <h3><strong>Academic</strong></h3>
+                    <h3><b>Academic</b></h3>
                     <p>
                         At this point, I have been in school for the majority of my life. I have always had a wide diversity of scholastic interests. While I have embraced Math and Science as my primary focus throughout my academic journey, I also love to write and find joy and inspiration in reading creative literature. One day, I will write a book or two to share a broader cross-section of my story than I have done here.
                     </p>
@@ -62,7 +62,7 @@
                     </p>
                 </div>
                 <div class="carousel-item">
-                    <h3><strong>Professional</strong></h3>
+                    <h3><b>Professional</b></h3>
                     <p>
                         Like I said earlier, I have spent the majority of my life in school thus far. Nevertheless, I have had an interesting brush with the corporate world in various ways. Throughout the course of my time at MIT, I utilized the summers to explore technical roles at companies spanning a wide variety of industries. My first internship was in social media as an iOS development role at Facebook as part of a student-focused program called Facebook University (FBU). The second summer introduced me into finance as a technology analyst. In my third inernship, I would be introduced to the micropocessor industry at the namesake of Silicon Valley, Intel. That summer was special beyond the realm of the internship because it introduced me to the Code2040 community through their heralded Fellows Program. Code2040 continues to occupy a fond place in my heart and a separate post may be in order to due it justice.
 
@@ -84,25 +84,34 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div id=writing-content class=tab-content>
-            <p>
-                TODO: WRITING TAB
-            </p>
+        <div id="writing-content" class="tab-content">
+            <div>
+                <h3><b>Blog</b></h3>
+                <p>Refer to <a href="https://medium.com/@kezike" target="_blank">my Medium account</a> for now :}</p>
+            </div>
+            <div>
+                <h3><b>Research</b></h3>
+                <ul>
+                    <li>SolidVC: A Decentralized Framework for Verifiable Credentials on the Web [<a href="https://hdl.handle.net/1721.1/121667" target="_block">paper</a> | <a href="https://github.com/kezike/solid-vc" target="_block">impl</a>]</li>
+                </ul>
+            </div>
+            <div>
+                <h3><b>Books</b></h3>
+                <h5 style="font-family: fantasy">Stay Tuned!</h5>
+                <img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif">
+            </div>
         </div>
-        <div id=projects-content class=tab-content>
+        <div id="projects-content" class="tab-content">
             <ul id="project-list" style="list-style-type:none">
             </ul>
         </div>
-        <div id=resume-content class=tab-content>
-            <center>
-                <object width="800" height="1000" data="./resume.pdf"></object>
-            </center>
+        <div id="resume-content" class="tab-content">
         </div>
-        <div id=press-content class=tab-content>
+        <div id="press-content" class="tab-content">
             <ul id="press-list" style="list-style-type:none">
             </ul>
         </div>
-        <div id=contact-content class=tab-content>
+        <div id="contact-content" class="tab-content">
             <center>
                 <h3>Get In Touch!</h3>
                 <form name="contact" method="POST" action="https://formspree.io/kezike13@gmail.com" id="contact-form">
@@ -182,8 +191,11 @@
             $("#project-list").html(createProjectListHtml(projectTemplate, projectData));
         }
 
-        function loadResume() {
+        async function loadResume() {
             loadContent(resumeTab);
+            const resumeUrl = "https://raw.githubusercontent.com/kezike/kezike.github.io/master/resume.html";
+            const resumeHtml = await $.get(resumeUrl);
+            $(resumeContent).html(resumeHtml);
         }
 
         async function loadPress() {

@@ -156,6 +156,17 @@ textarea, input[type=text], input[type=email] {
 .carousel-indicator {
 		background-color: #ccc
 }
+.resume-section .header {
+		padding: 5px
+}
+.resume-section .general {
+		padding: 10px
+}
+.resume-section .right {
+		position: absolute;
+		right: 0px;
+		padding: 10px
+}
 /**
  * ------------------------------------------------------ *
  * Content
