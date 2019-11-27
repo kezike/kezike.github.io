@@ -167,6 +167,9 @@ textarea, input[type=text], input[type=email] {
 		right: 0px;
 		padding: 10px
 }
+.more {
+		display: none
+}
 /**
  * ------------------------------------------------------ *
  * Content
