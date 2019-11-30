@@ -48,8 +48,8 @@ body {
     font-family: 'Museo Sans', Arial, Helvetica, sans-serif;
     font-size: 100%;
     line-height: 1.25;
-    color: #800000;
-    background-color: #ecf8f2;
+    color: #ac7139;
+    background-color: #e6f3ff;
     overflow-x: hidden
 }
 a {
@@ -98,7 +98,7 @@ p {
 }
 /* Style the buttons that are used to open the tab content */
 .tab button {
-    color: #800000;
+    color: #ac7139;
     background-color: inherit;
     font-weight: bold;
     border: none;
@@ -122,7 +122,7 @@ p {
     border-top: none
 }
 button, input[type=submit] {
-		color: #800000;
+		color: #ac7139;
 		background-color: #f1f1f1;
 		font-weight: bold;
 		border: 1px solid #ccc;
@@ -169,6 +169,9 @@ textarea, input[type=text], input[type=email] {
 }
 .more {
 		display: none
+}
+.text {
+		color: #000000
 }
 /**
  * ------------------------------------------------------ *
