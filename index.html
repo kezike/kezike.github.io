@@ -268,7 +268,7 @@
                 listHtml += template.replace(/{{title}}/g, project.title)
                                     .replace(/{{image}}/g, project.image)
                                     .replace(/{{index}}/g, project.index)
-                                    .replace(/{{description}}/g, project.description)
+                                    .replace(/{{desc}}/g, project.desc)
                                     .replace(/{{url}}/g, project.url);
             });
             return listHtml;
@@ -281,7 +281,7 @@
                 listHtml += template.replace(/{{title}}/g, press.title)
                                     .replace(/{{image}}/g, press.image)
                                     .replace(/{{index}}/g, press.index)
-                                    .replace(/{{description}}/g, press.description)
+                                    .replace(/{{desc}}/g, press.desc)
                                     .replace(/{{url}}/g, press.url);
             });
             return listHtml;
