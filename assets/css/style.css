@@ -151,7 +151,7 @@ textarea, input[type=text], input[type=email] {
 .carousel-indicator {
 		background-color: #ccc
 }
-.resume-section .header {
+.resume-section .header, .resume-section .logo {
 		padding: 5px
 }
 .resume-section .general {
@@ -161,6 +161,9 @@ textarea, input[type=text], input[type=email] {
 		position: absolute;
 		right: 0px;
 		padding: 10px
+}
+.resume-section .general .logo, .resume-section .general .org, .resume-section .general .loc {
+		display: inline-block
 }
 .more {
 		display: none
